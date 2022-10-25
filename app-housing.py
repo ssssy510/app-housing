@@ -10,13 +10,13 @@ df = pd.read_csv('housing.csv')
 price_slider = st.slider('Median House Price', 0, 500001, 200000)
 df = df[df.median_house_value >= price_slider]
 
-location_filter = st.slider.multiselect(
+location_filter = st.sidebar.multiselect(
      'Choose the location type',
      df.ocean_proximity.unique(), 
      df.ocean_proximity.unique())  
 df = df[df.ocean_proximity.isin(location_filter)]
 
-income_filter = st.slider.radio(
+income_filter = st.sidebar.radio(
     'Choose income level', 
     ('Low', 'Median', 'High')
 )
